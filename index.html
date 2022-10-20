@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Js fundamentals</h3>
+    <script>
+// primitive data types: string/integer/boolean/undefined/null
+//reference data types: functions, objects, array
+//in arrays using const we can changes values
+// we can modify things in array using const
+//objects and arrays keep reference
+// objects and arrays will always keep references to the old one
+// reference types alawys modified
+//es5 we are only using var
+// es6 let and const are included
+
+//primitive data types
+let go="public";
+console.log(go);
+const ag=24;
+console.log(ag);
+let wed="true";
+console.log(wed);
+let thur;
+console.log(thur); //undefined
+const friday=null;
+console.log(friday);
+
+//typeOf to check variable string or integer
+let mon = "something";
+console.log(typeof(mon));
+let mon1= 34;
+console.log(typeof(mon1));
+let mon2= true;
+console.log(typeof(mon2));
+let mon3= null;
+console.log(typeof(mon3));//output obj
+let mon4
+console.log(typeof(mon4));
+
+// in js we have 2 kinds of numbers floating numbers and integer
+//////////
+
+// JS operator
+// we use operators along with var and const to create expression usinf operator
+// we can implement logic
+// arthimatic(add, sub, mult, divided, increment, decrement)
+//increment operator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Arrays
+// it is a data structure that will represents list of items
+
+const num = ['1','2','3','4']
+console.log(num);
+num[2]="welcome";
+console.log(num);
+//we can add values in array at bottom using push
+num.push("javascript");
+console.log(num);
+// to add values starting unshift
+num.unshift("react")
+console.log(num);
+let family= ['name','age','height','weight','nativeplace','country'];
+console.log(family);//[,,,,,]
+family.length; //6
+family[1];age
+
+
+//functions
+//functions are building blocks of js
+//functions are set of statements that perform task or to calculate a value
+//different types of functions, function declaration, func expression, callback func, anonymous fun, arrow func
+function square(number) {
+    return number*number
+}
+square(9);//16
+
+function multiply(num1, num2) {
+    return num1*num2
+}
+multiply(4,9);
+
+
+
+
+// objects
+// obj are collection of key value pairs
+// if we have properties that are highly related we want to incapsulate them inside of the object
+//when we deal with multiple related variable we use obj
+//2 types of obj :object literals and bracket notations
+//2 ways we access the property of an obj
+//Person.name ="xyz"  dot notation
+//Person[age]=23 bracket notation
+// in object oriented programming (oop) if a function is a part of obj we call that function method
+//if objs have logics and more methods(10), we need diffeent appraoch to create objs using factory functions or constructions functions
+//factory functions or constructor functions
+//naming convention for factory function is camel notation and construction function pascal notation
+// factory function camel notation /construction function is pascal notation 
+// construction function we use this keyword
+// experience developer use construction function using this
+
+const tweet = {
+    name:"somewhere",
+    age:24,
+    place:"UK"
+}
+
+console.log(tweet);
+const place =tweet;
+console.log(place);
+const place1 =place;
+place1.age=34;
+place1.name="alex";
+console.log(place1);
+
+//we can access obj particular value and update particular value
+// key name /value xyz
+//dot notation
+let sameple = {
+    name:"xyz",
+    place:"somehwe",
+    age:24
+}
+console.log(sameple);
+sameple.name; //we are accessing property
+sameple.name="technology";
+console.log(sameple);// we are updating property
+console.log(sameple.name);
+
+//bracket notation
+let sameple1 = {
+    name:"xyz",
+    place:"somehwe",
+    age:24
+}
+console.log(sameple1);
+// sameple1[name]; //we are accessing property
+console.log(sameple1[name]);
+sameple1[name]="technology";
+console.log(sameple1);// we are updating property
+sameple1[place];
+
+// factory function production of high volume key value properties
+// camel case, draw is method
+function createCircle (radius) {
+    return {
+        radius,
+        draw() {
+        console.log('draw');
+        }
+    };
+}
+
+const myCircle = createCircle(1);
+myCircle;
+// output {radius:1, draw:f}
+
+// Construction Function
+
+function Circle (radius) {
+    this.radius=radius;
+    this.draw=function() {
+        console.log('draw');
+    }
+}
+
+const Circle = newCircle(1);
+
+// 
+let familyInfo = {
+firstName:'Krishna',
+lastName:'Dev',
+age:45,
+place:'hyd',
+nationality :'Ind'
+};
+console.log(familyInfo);
+console.log(familyInfo.firstName);
+console.log(familyInfo[age]);
+
+
+
+
+
+    </script>
+</body>
+</html>
