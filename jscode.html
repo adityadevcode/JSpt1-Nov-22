@@ -19,6 +19,7 @@ var:can be reassigned but only accessed within a fucntion
 const:cannot be reassinged and not accessible before they appear
 let:let variable can be reassigned but not redeclared
 
+................................
 //objects:
 var person = { 
  firstName:"John", 
@@ -363,10 +364,181 @@ prototype against Array.prototype.
 on the obj constructor, and use the obj instance as a parameter. this is known as static method
 build in objects methods
 
-
-
+................................................
 
 //arrays
+-VERY USEFUL they store multiple values in a single variable, making it more readable and
+maintainable
+-arrays can contain any data type: numbers, strings,objects
+
+let oceans = [
+	"Pacific",
+	"Atlantic",
+	"Indian",
+	"Arctic",
+	"Antarctic",
+];
+
+//instead of creating 5 seperate variables we are creating an array
+console.log(oceans);
+//to access a specific item
+oceans[0];
+
+two ways to create array
+-array literal uses square brackets above oceans
+-array constructor which uses new keyword
+let sharks = new Array(
+    "hammer",
+    "great",
+    "lake",
+);
+
+//array literals are famous
+//array are often used to group together lists of similiar data types
+//after creating arrays we can manipulate them in many ways
+//indexing (0,1,2,3)
+
+//if we want to find out the index number of a specific item in an array
+let seaCreatures = [
+	"octopus",
+	"squid",
+	"shark",
+	"seahorse",
+	"starfish",
+];
+seaCreatures.length;5
+seaCreatures.indexOf("seahorse"); 3
+//if an index not found then -1
+console.log(seaCreatures.indexOf("salmon"));-1
+
+// accessing items in array
+console.log(seaCreatures[1]); squid
+//We know 0 will always output the first item in an array.
+//We can also find the last item in an array by performing an 
+operation on the length property
+
+//to get last index value in array
+const lastIndex = seaCreatures.length - 1;
+seaCreatures[lastIndex]; starfish
+
+//attemping to access an item that doesnt exist
+will return undefined
+
+//nested array
+let nestedArray = [
+	[
+		"salmon",
+		"halibut",
+	],
+	[
+		"coral",
+		"reef",
+	]
+];
+
+nestedArray[1][0]; coral
+
+//adding item to array
+seaCreatures[5]="whale";
+seaCreatures;
+
+//adding an item out of index range
+seaCreatures[7] = "pufferfish";
+seaCreatures;
+
+[ 'octopus',
+	'squid',
+	'shark',
+	'seahorse',
+	'starfish',
+	'whale',
+	,
+	'pufferfish' ]
+
+    //acces extra array item will return undefined
+    seaCreatures[6]
+    undefined
+
+    //push() method, which adds an item to the end of the array
+    // Append lobster to the end of the seaCreatures array
+seaCreatures.push("lobster");
+seaCreatures;
+
+[ 'octopus',
+	'squid',
+	'shark',
+	'seahorse',
+	'starfish',
+	,
+	'whale',
+	'pufferfish',
+	'lobster' ]
+
+   //unshift()method will add an item to begining of array
+   // Append dragonfish to the beginning of the seaCreatures array
+seaCreatures.unshift("dragonfish");
+
+//remove specific items from array, we use splice()
+seaCreatures.splice(7, 1);
+seaCreatures;
+
+//pop() method will remove the last item in ana array
+seaCreatures.pop();
+
+//shift() method to remove the first item in array
+seaCreatures.shift();
+
+//Modifying items in arrays
+seaCreatures[0] = "manatee";
+
+//another method of modifying array using splice() method
+seaCreatures.splice(3, 1, "sea lion");
+
+//looping through array
+// Create an array of shellfish species
+let shellfish = [
+	"oyster",
+	"shrimp",
+	"clam",
+	"mussel",
+];
+
+// Loop through the length of the array
+for (let i = 0; i < shellfish.length; i++) {
+  console.log(i, shellfish[i]);
+}
+
+Output
+0 'oyster'
+1 'shrimp'
+2 'clam'
+3 'mussel'
+
+we can use for ... of loop
+// Create an array of aquatic mammals
+let mammals = [
+	"dolphin",
+	"whale",
+	"manatee",
+];
+
+// Loop through each mammal
+for (let mammal of mammals) {
+	console.log(mammal);
+}
+
+Output
+dolphin
+whale
+manatee
+
+//the for...of loop does not retrieve the index number of the elements 
+in the array, but it is generally a simpler, more concise way to loop through an array.
+
+//Using loops is extremely useful for printing out the whole value of an array, 
+such as when displaying the items from a database on a website.
+
+//////////////////////////////////////////
 var fruits=["bananas", "apple","pear"];
 console.log(fruits);
 
@@ -388,7 +560,7 @@ toString() — Converts elements to strings
 unshift() — Adds a new element to the beginning
 valueOf() — Returns the first position at which a given element 
 appears in an array
-
+//////////////////////////////////
 Operators
 Basic Operators 
 + — Addition
