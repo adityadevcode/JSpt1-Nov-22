@@ -1,0 +1,920 @@
+<!-- Ternary operator
+if a customer has more than 100 points,they are a gold cusomter, otherwise silver
+let points =110;
+let type = points > 100 ? 'gold':'silver';
+console.log(type);
+VM4582:5 gold
+undefined
+
+let points =80;
+let type = points >100? 'gold':'silver';
+console.log(type); sivler
+
+//logical operator
+//or &&and returns if both operands are true
+let highIncome = true;
+let goodCreditScore = true;
+let eligibleForLoan =highIncome && goodCreditScore;
+console.log(eligibleForLoan);
+true
+
+let highIncome = true;
+let goodCreditScore = true;
+let eligibleForLoan =highIncome && goodCreditScore;
+console.log(eligibleForLoan);
+
+VM253:4 true
+undefined
+let highIncome1 = true;
+let goodCreditScore1 = true;
+let eligibleForLoan1 =highIncome1 || goodCreditScore1;
+console.log(eligibleForLoan1);
+
+VM378:4 true
+undefined
+let highIncome2 = false;
+let goodCreditScore2 = true;
+let eligibleForLoan2 =highIncome2 || goodCreditScore2;
+console.log(eligibleForLoan2);
+
+VM515:4 true
+undefined
+let highIncome3 = false;
+let goodCreditScore3 = true;
+let eligibleForLoan3 =highIncome3 && goodCreditScore3;
+console.log(eligibleForLoan3);
+VM642:4 false
+undefined
+
+///Precedence Operator
+let x = 2 +3 *4;
+console.log(x);
+VM10920:3 14
+undefined
+//all operators have there own precedence, it hard to 
+know which operator has higher precedence na which operator has lower precedence
+let x = (2+3)*4;
+console.log(x);
+VM11300:3 20
+
+//control flow/conditional statements
+in js we have 2 types of conditional statements (if...else)
+(switch ...case)
+if (condition){
+//statement (this one is called block of code)
+//}
+//other conditonal else if (another condition) {
+//statement
+//}
+if above statement is not true then we add else
+
+//hour
+//if hour is between 6am and 12pm :good morning
+if it is etween 12pm to 6pm: good afternoon
+otherwise: good evening
+
+let hour =10;
+if(hour >=6 && hour <12) {
+    console.log('Good morning');
+}
+else if (hour >= 12 && hour < 18) {
+console.log('good afternoon');
+}
+else {
+console.log('good evening');
+}
+VM14640:8 Good morning
+
+let hour=22; good evening
+
+//switch case
+let role="guest";
+switch (role){
+    //case statements
+    case 'guest':
+    console.log('Guest user');
+    break; //break statements to jump statements
+    case 'moderator':
+    console.log('Moderator user');
+    break;
+    //if none of statments match we use default
+    default:
+    console.log('unknown user');
+}
+
+let role="no one";
+switch (role){
+    //case statements
+    case 'guest':
+    console.log('Guest user');
+    break; //break statements to jump statements
+    case 'moderator':
+    console.log('Moderator user');
+    break;
+    //if none of statments match we use default
+    default:
+    console.log('unknown user');
+}
+VM2850:12 unknown user
+
+//for loops
+//for -some times we need to repeat action for several times
+//loops -they repeat loops number of time
+(for, while, do while, for in, for of)
+//for loop common convention we use i
+
+for (initial expression, let i=0; condition(i<5); 
+increment expression(i++))
+for (let i=1; i<=5; i++){
+    code block console.log('Hello world', i);
+}
+
+for (let i=0; i<=5; i++) {
+    if (i %2 !==0) console.log(i);
+}
+out: 1 3 5
+
+//while
+one key diff between for and while loop
+//for loops the loops variable is part of the loop itself
+//while we declare externally
+let i=0;
+while (i <=5) {
+if (i%2 !==0) console.log(i);
+i++;
+}
+
+//do while loop
+diff between while and do while loop
+while loop are always executed atleast once even condition
+evalutes to false
+
+let i=9;
+while (i<=5) { condition evluates here
+if(i%2!==0) console.log(i);
+i++;
+}
+
+this code will not execute because condition is false
+//in while loops conditions evaluated ahead of time begining
+of every iteration
+**** in dowhile loops the condition evalute at the end the statment
+is executed even the condition is false
+
+let i =0;
+do {
+if (i%2 !==0) console.log(i);
+i++;
+}
+while (i<=5);// condtion evaluate here
+1,3,5
+
+********************
+2 kinds of loops we use for iterative objects
+ or elements in a array for in loop
+//for in loop
+//for (let key in person)
+const person = {
+    name:'mosh',
+    palce:'somewhere',
+    age:23
+};
+
+we need to use for (let key in person)
+for (let key in person)
+console.log(key);
+name
+place
+age
+
+for (let key in person)
+console.log(key,person[key]);
+name mosh
+VM5889:8 palce somewhere
+VM5889:8 age 23
+
+--------------
+for in loop to iterate over array
+const colors = ['red','green','blue'];
+for (let index in colors)
+console.log(index);
+VM4430:4 0
+VM4430:4 1
+VM4430:4 2
+
+const colors2 = ['red','green','blue'];
+for (let key in colors2)
+console.log(key, colors2[key]);
+VM4579:4 0 red
+VM4579:4 1 green
+VM4579:4 2 blue
+
+const col = ['red','green','blue'];
+for (let index in col)
+console.log(index, col[index]);
+0 red
+VM6953:3 1 green
+VM6953:3 2 blue
+
+//starting from es6 we have new kind of loop we can iterate
+ over array (for -of)
+ instead of writing index
+const pics = ['red','green','pink'];
+for (let pic of pics)
+console.log(pic);
+VM5348:9 red
+VM5348:9 green
+VM5348:9 pink
+
+const names = ['aditya','dev','sam','krishna'];
+for (let name of names)
+console.log(name);
+VM5789:3 aditya
+VM5789:3 dev
+VM5789:3 sam
+VM5789:3 krishna
+
+//break and continue
+let i=0;
+while (i <=10) {
+if (i ===5) break;
+console.log(i);
+i++;
+}
+01234
+
+with continue we continue next iterate
+let i=0;
+while (i <=10) {
+if (i % 2 ===0) {
+i++;
+continue;
+}
+console.log(i);
+i++;
+}
+1 3 5 7 9 10
+
+//objects
+collection of key value pairs
+-properties that are highly related we want to encapsulate them
+inside of an obj
+
+const circle = {
+    name:"some",
+    place:"whe",
+    age:34
+}
+console.log(circle);
+
+// another obj in existing obj
+const circle = {
+    name:"some",
+    place:"whe",
+    age:34,
+    location: {
+        x:1,
+        y:2
+    }
+}
+console.log(circle);
+{name: 'some', place: 'whe', age: 34, location: {…}}
+
+//adding obj in existing obj and property as well
+const circle1 = {
+    name:"some",
+    place:"whe",
+    age:34,
+    location: {
+        x:1,
+        y:2
+    },
+    poot:"some"
+};
+console.log(circle1);
+{name: 'some', place: 'whe', age: 34, location: {…}, poot: 'some'}
+
+//function in obj
+const circle3 = {
+    name:"some",
+    place:"whe",
+    age:34,
+    draw:function(){
+        console.log('draw');
+    },
+    country: {
+    name:"some",
+    place:"whe",
+    },
+    same:"welcome",
+}
+console.log(circle3);
+{name: 'some', place: 'whe', age: 34, country: {…}, draw: ƒ, …}
+
+//in object oriented programing if a function is part of an obj then we call method
+//draw method : circle3.draw();
+
+//if our object has logic we need a diff way to create objs
+that when we use factory functions to produce objs
+//in factory we define logic in one place 
+factory:camelcase
+function createCircle() {
+}
+
+function createCircle() {
+    const circle = {
+        radius:1,
+        location: {
+            x:1,
+            y:1
+        },
+            isVisible:true,
+            draw:function() {
+                console.log('draw');
+            }
+        };
+        return circle;
+    }
+
+createCircle();
+{radius: 1, location: {…}, isVisible: true, draw: ƒ}
+
+let sum = createCircle();
+console.log(sum);
+{radius: 1, location: {…}, isVisible: true, draw: ƒ}
+
+//modified code
+function createCircle(radius) {
+return {
+radius,
+draw() {
+console.log('draw');
+}
+};
+}
+const circle1 = createCircle(1);
+console.log(circle1);
+{radius: 1, draw: ƒ}
+
+//2 patterns to create obj factory function, constructor
+factry camelcase : oneTwoThree
+constructor pascal: OneTwoThree
+
+function createCircle(radius) {
+return {
+radius,
+draw() {
+console.log('draw');
+}
+};
+
+//constructor function
+Construction function,instead of returing an object
+ we will use diff approach to initialize the obj
+//this is the reference to the object 
+executing (this will refer to empty obj)
+
+function Circle (radius) {
+this.radius=radius;
+this.draw=function() {
+console.log('draw');
+}
+}
+const circle =new Circle(1);
+
+//when we use new 3 things will happen,new will create empty object
+and itwill set this to empty obj, it will return obj from functioncircle
+
+//construcote function is senior
+
+// dynamic nature of objects
+objects in js are dynamic which means once we create them we can always add
+ new properties are method or removing exisitng once.
+
+ we adding new properties and methods for circle objects
+ const circle = {
+    radius:1
+ };
+
+ circle.color ='yellow';
+ circle.draw =function (){
+
+ }
+ console.log(circle);
+
+//every obj in js has a property called constructor that reference
+ the function that was used to construct or create that obj
+undefined
+
+///////////////////////
+Functions are objects
+//object will not store in the variable some where it will store in the memory and address of that memory location
+is stored inside the variable
+
+//primitives are copied by their value 
+and objects are copied by their reference
+
+when we use an object that obj is not stored in the variable 
+let x= it will store some where else in the memory
+//and address of that memory location stored inside the variable
+ (when we copy x=y is the address of the ref we are copying
+undefined
+
+in primitive types we deal with 2 independent copies and in ref types
+ it will copy by there reference
+
+ //enumerating properties of an object
+/we can iterate over all properties and methods of an obj
+
+const circle4 ={
+radius: 1,
+draw() {
+console.log('draw');
+}
+};
+
+for(let key in circle4);
+console.log(key);
+radius
+draw
+
+//we can use entry, it will return each key value pair as an array
+const circle9 ={
+radius: 1,
+draw() {
+console.log('draw');
+}
+};
+for (let entry of Object.entries(circle9))
+console.log(entry);
+VM10120:9 (2) ["radius", 1]
+VM10120:9 (2) ["draw", ƒ]
+
+to check if a given object has given property or method
+with in operator we can see if the property is exist in a given object
+
+const circle10 ={
+radius: 1,
+draw() {
+console.log('draw');
+}
+};
+if ('radius' in circle10) console.log('yes');
+VM10266:8 yes
+
+the simplest way to enumerate the properties of an object is 
+using for in loop, we can use for of loop along with 
+object.keys and object.entries.
+-finally if a given a property is exist in an obj, we use in operator
+
+//cloning the object
+
+how to enumerate properties of object using this technic we will all properties in object and copy them to another object
+below appraoch for copying and cloning of object is old in modern js we have better ways to achieve this we need to use
+object.assign method
+const circle = {
+radius:1,
+draw() {
+console.log('draw');
+}
+};
+
+const another = {};
+for (let key in circle)
+another[key] = circle[key];
+console.log(another);
+VM1146:11 {radius: 1, draw: ƒ}draw: ƒ draw()radius: 1__proto__: Object
+
+//object.assign method it takes all the properties on method in the object and copies them
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
