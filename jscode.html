@@ -71,7 +71,7 @@ task that obj can perform
 dot notation.  gimi.weapon;
 bracket notation []. gimi["weapon"];
 //dot notation is faster and more readble
-//bracket notation allow access to property names stored in a variable
+//bracket notation [] allow access to property names stored in a variable
 //to retrieve obj method, we should call it as regular function
 gili.greet();
 
@@ -80,13 +80,284 @@ adding new age property to gimli
 gimli.age=139;
 gimil["age"="132"]
 
+//method can also be added to obj using same process
+gimli.fight = function() {
+    return ~attacks $some;
+}
+after creating a new method we can call method
+gimli.fight();
+
+//removing obj properties
+we use delete 
+delete gimli.weapon;
+the delete operation evaluates as true if the property
+is successfully removed
+
+//looping through obj properties
+js has build in type of for loop specailly iterating over the
+properties of object
+//iterating over obj proper for in loop
+
+const gimli = {
+	name: "Gimli",
+	race: "dwarf",
+	weapon: "battle axe",
+};
+
+//iterating through prop
+for (let key in gimli) {
+    console.log(gimli[key]);
+}
+
+op:gimli
+dwarf
+battle
+
+//retrieve the property name only, coverting the key values to
+upper case
+for (let Key in gimli) {
+    console.log(key.toUpperCase() + ':', gimli[key]);
+}
+
+op:NAME: Gimli
+RACE: dwarf
+WEAPON: battle axe
+
+//for of loop used extensively on array obj type
+
+//another enumeration method is the object.keys() method
+which will return an array of the object keys
+const gimli = {
+	name: "Gimli",
+	race: "dwarf",
+	weapon: "battle axe",
+};
+Object.keys(gimli);
+output:["name", "race", "weapon"]
+
+/////////
+Object methods in JS
+-all obj in js descend from the parent _constructor
+-obj has many built in methods
+-obj method are used direclty on the obj constructor
+
+//Object.create()
+The Object.create() method is used to create a new object and link 
+it to the prototype of an existing object.
+The barista object now has one property — position — 
+but all the other properties and methods from job are available 
+through the prototype. Object.create() is useful for keeping code DRY by minimizing duplication.
+
+//Object.keys()
+creates an array containing the keys of an object.
+We can create an object and print the array of keys.
+
+//object.values()
+creates an array containing the values of an object.
+
+//object.entries()
+creates a nested array of the key/value pairs of an object.
+
+//object.assign()
+is used to copy values from one object to another.
+We can create two objects, and merge them with Object.assign().
+
+//object.freeze()
+prevents modification to properties and values of an object,
+ and prevents properties from being added or removed from an object.
+
+//object.seal()
+prevents new properties from being added to an object,
+ but allows the modification of existing properties. 
+ This method is similar to Object.freeze().
+
+//object.getPrototypeOf()
+is used to get the internal hidden [[Prototype]] of an object, 
+also accessible through the __proto__ property.
 
 
+//Object.create(): create a new object and link to the prototype of an 
+existing object.
+
+// Initialize an object with properties and methods
+const job = {
+    position: 'cashier',
+    type: 'hourly',
+    isAvailable: true,
+    showDetails() {
+        const accepting = this.isAvailable ? 'is accepting applications' : "is not currently accepting applications";
+
+        console.log(`The ${this.position} position is ${this.type} and ${accepting}.`);
+    }
+};
+
+// Use Object.create to pass properties
+const barista = Object.create(job);
+
+barista.position = "barista";
+barista.showDetails();
+The barista position is hourly and is accepting applications.
+
+********
+The barista object now has one property — position — but all the other properties
+ and methods from job are available through the prototype. Object.create() is useful 
+ for keeping code DRY by minimizing duplication
+
+//Object.keys():create an array containing keys of an obj
+we can create an obj and print the arrays of keys
+ex: accountant:'Oscar';
+here only keys means accountant ["accountant"]
+-we can use forEach() array method to iterate through keys and values
+//Object.keys is also useful for checking the length of converted array
+using the length property
+const length = Object.keys(employees).length;
+console.log(length);
+
+//object.values()
+creates an array containing the values of an obj
+
+// Initialize an object
+const session = {
+    id: 1,
+    time: `26-July-2018`,
+    device: 'mobile',
+    browser: 'Chrome'
+};
+
+// Get all values of the object
+const values = Object.values(session);
+
+console.log(values);
+[1, "26-July-2018", "mobile", "Chrome"]
+
+//Object.keys() and Object.values() allow you to return the data from an object.
+
+//Object.entries()
+creates a nested array of key value pairs of an obj
+
+// Initialize an object
+const operatingSystem = {
+    name: 'Ubuntu',
+    version: 18.04,
+    license: 'Open Source'
+};
+
+// Get the object key/value pairs
+const entries = Object.entries(operatingSystem);
+
+console.log(entries);
+[
+    ["name", "Ubuntu"]
+    ["version", 18.04]
+    ["license", "Open Source"]
+]
+
+Once we have the key/value pair arrays, we can use the
+ forEach() method to loop through and work with the results.
+// Loop through the results
+entries.forEach(entry => {
+    let key = entry[0];
+    let value = entry[1];
+
+    console.log(`${key}: ${value}`);
+});
+
+Output
+name: Ubuntu
+version: 18.04
+license: Open Source
+
+//object.assign()
+used to copy values from one obj to another
+we can create 2 objs and merge them with Object.assign()
+
+const name = {
+    firstName: 'Philip',
+    lastName: 'Fry'
+};
+
+// Initialize another object
+const details = {
+    job: 'Delivery Boy',
+    employer: 'Planet Express'
+};
+
+// Merge the objects
+const character = Object.assign(name, details);
+
+console.log(character);
+{firstName: "Philip", lastName: "Fry", job: "Delivery Boy", employer: "Planet Express"}
+
+// we can use spread operator ... to accomplish the same task
+// Initialize an object
+const name = {
+    firstName: 'Philip',
+    lastName: 'Fry'
+};
+
+// Initialize another object
+const details = {
+    job: 'Delivery Boy',
+    employer: 'Planet Express'
+};
+
+// Merge the object with the spread operator
+const character = {...name, ...details}
+
+console.log(character);
+{firstName: "Philip", lastName: "Fry", job: "Delivery Boy", employer: "Planet Express"}
+
+//object.freeze()
+prevents modification to properties and values of an obj
+-prevent properties from being added or removed from an obj
+
+const user = {
+	username: 'AzureDiamond',
+	password: 'hunter2'
+};
+
+// Freeze the object
+const newUser = Object.freeze(user);
+
+newUser.password = '*******';
+newUser.active = true;
+
+console.log(newUser);
+{username: "AzureDiamond", password: "hunter2"}
+
+//object.seal()
+prevents new properties from being added to an object,
+ but allows the modification of existing properties
+const user = {
+	username: 'AzureDiamond',
+	password: 'hunter2'
+};
+
+// Seal the object
+const newUser = Object.seal(user);
+
+newUser.password = '*******';
+newUser.active = true;
+
+console.log(newUser);
+{username: "AzureDiamond", password: "*******"}
+
+//object.getPrototypeOf()
+is used to get the internal hidden
+ [[Prototype]] of an object, also accessible through the __proto__ property.
+
+In this example, we can create an array, which has access to the Array prototype.
+const employees = ['Ron', 'April', 'Andy', 'Leslie'];
+Object.getPrototypeOf(employees);
+Output
+[constructor: ƒ, concat: ƒ, find: ƒ, findIndex: ƒ, pop: ƒ, …]
+
+We can see in the output that the prototype of the employees array has access to pop, 
+find, and other Array prototype methods. We can confirm this by testing the employees 
+prototype against Array.prototype.
 
 
-
-
-
+//////////////////////////////
 
 //obj has many useful builtin methods,obj methods are used directly
 on the obj constructor, and use the obj instance as a parameter. this is known as static method
