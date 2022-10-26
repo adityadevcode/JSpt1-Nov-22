@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Function</h3>
+    <script>
+//fUNCTION
+function nameOfFunction (parameter1, 2, ,,n){
+function body
+    }
+
+//A function is composed of five elements:
+// A function keyword
+// The function's name
+// A list of zero or more parameters
+// A code block ({...})
+// The function's body
+
+// Define a function with two parameters:
+function myName(firstName, lastName) {
+  console.log(`My full name is ${firstName} ${lastName}.`);
+}
+
+// Invoke myName function while passing two arguments to its parameters:
+myName("Oluwatobi", "Sofela");
+
+// The invocation above will return:
+"My full name is Oluwatobi Sofela."
+
+//define a function with no default parameters
+// Define a function with two parameters:
+function myName(firstName, lastName) {
+  console.log(`My full name is ${firstName} ${lastName}.`);
+}
+
+// Invoke myName function while passing one argument to its parameters:
+myName("Oluwatobi");
+
+// The invocation above will return:
+"My full name is Oluwatobi undefined."
+
+//The computer automatically set the lastName parameter to undefined because
+ //we did not provide a default value.
+
+ How to define a function with an undefined argument
+  and no default parameter
+// Define a function with two parameters:
+function myName(firstName, lastName) {
+  console.log(`My full name is ${firstName} ${lastName}.`);
+}
+
+// Invoke myName function while passing two arguments to its parameters:
+myName("Oluwatobi", undefined);
+
+// The invocation above will return:
+"My full name is Oluwatobi undefined."
+////////
+
+// Define a function with two parameters:
+function myName(firstName, lastName = "Sofela") {
+  console.log(`My full name is ${firstName} ${lastName}.`);
+}
+
+// Invoke myName function while passing one argument to its parameters:
+myName("Oluwatobi");
+
+// The invocation above will return:
+"My full name is Oluwatobi Sofela."
+
+//code block
+A block is a pair of braces ({...}) 
+used to group multiple statements together.
+
+{
+  const hourNow = new Date().getHours();
+}
+
+//types of js functions
+function declaration
+function expression
+arrow function expression
+immediately invoking function expression
+
+function addNumbers() {
+  return 100+20;
+}
+
+let name = function addNumbers() {
+  return 100+20;
+}
+above is named function expression that we assigned to myFuncExpr
+//annoymous function
+const name = function() {
+  return 100+20;
+};
+
+An anonymous function is a function with no name.
+A named function is a function with a name.
+
+//Arrow function
+An arrow function expression is a shorthand way to 
+write a function expression.
+
+const variableName = () =>{
+  return 100 +20;
+}
+//we defined the function without a function keyword and a function name.
+//parameters parenthesis is optinal
+const variableName = a => {
+  return a+20;
+};
+//curly brackets and return keyword are optional
+const variableName = (x,y) => x+y;
+
+//use parenthesis to wrap any implicit object return
+const myFuncExpr = () => {
+  carColor:"white";
+  shoeColor:"Red";
+}
+
+const myFuncExpr = () => ({
+  carColor: "White",
+  shoeColor: "Yellow",
+});
+
+//////////////////////////
+Javascript Immediately Invoked Function (IIFE)
+
+An immediately invoked function expression (IIFE) is a 
+function expression that invokes itself automatically.
+
+(function() {
+  /* ... */
+})();
+
+A grouping operator: The first pair of parentheses ()
+A function: Enclosed within the grouping operator
+An invocator: The last pair of parentheses ()
+
+named IIFE 
+(function addNumbers(){
+  console.log(100+20);
+}) ();
+
+anonymous IIFE
+(function()  {
+  console.log(100+20);
+}) ();
+
+//define arrowfunction in IIFE
+(() =>console.log(100+20)) ();
+
+//define async IIFE
+(async() =>console.log(await 100+20))();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
